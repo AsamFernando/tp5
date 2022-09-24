@@ -5,7 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     id_carrera: DataTypes.INTEGER
   }, {});
   materia.associate = function(models) {
-    // associations can be defined here
+    materia.belongsTo(models.id_carrera,
+      {
+        as: 'Carrera-Relacionada',
+        foreignKey: 'id_carrera'
+      }
+    )
   };
   return materia;
 };
